@@ -1,4 +1,4 @@
-scoreboard players set #smpmag_version Meta 1000
+scoreboard players set #smpmag_version Meta 1010
 
 execute unless score #smpmag_version Meta = #smpmag_currently_version Meta if score #smpmag_version Meta > #smpmag_currently_version Meta if score #smpmag_print_version Config matches 1..2 run tellraw @a ["",{"text":"[Simple Magnets]: ","color":"yellow","bold":true},{"text":"Version: "},{"score":{"name":"#smpmag_currently_version","objective":"Meta"}},{"text":" -> ","color":"green"},{"score":{"name":"#smpmag_version","objective":"Meta"}}]
 execute unless score #smpmag_version Meta = #smpmag_currently_version Meta if score #smpmag_version Meta < #smpmag_currently_version Meta if score #smpmag_print_version Config matches 1..2 run tellraw @a ["",{"text":"[Simple Magnets]: ","color":"yellow","bold":true},{"text":"Version: "},{"score":{"name":"#smpmag_currently_version","objective":"Meta"}},{"text":" -> ","color":"red"},{"score":{"name":"#smpmag_version","objective":"Meta"}}]

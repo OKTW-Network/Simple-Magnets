@@ -1,89 +1,34 @@
-# item
-execute store success score #calculation_temp1 numeric if entity @s[predicate=minecraft:sneaking,predicate=smpmag:tool/hand_main-item_magnet,predicate=smpmag:hand_main-mk1,predicate=smpmag:hand_main-status0]
-execute if score #calculation_temp1 numeric matches 1 run function smpmag:tool/replace-hand-main/item_magnet-mk1-status1
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetStatus1
-execute if score #calculation_temp1 numeric matches 1 run tag @s remove MagnetStatus0
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetStatusChanged
-execute store success score #calculation_temp1 numeric if entity @s[predicate=minecraft:sneaking,predicate=smpmag:tool/hand_main-item_magnet,predicate=smpmag:hand_main-mk1,predicate=smpmag:hand_main-status1,tag=!MagnetStatusChanged]
-execute if score #calculation_temp1 numeric matches 1 run function smpmag:tool/replace-hand-main/item_magnet-mk1-status0
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetStatus0
-execute if score #calculation_temp1 numeric matches 1 run tag @s remove MagnetStatus1
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetStatusChanged
-execute store success score #calculation_temp1 numeric if entity @s[predicate=minecraft:sneaking,predicate=smpmag:tool/hand_main-item_magnet,predicate=smpmag:hand_main-mk2,predicate=smpmag:hand_main-status0,tag=!MagnetStatusChanged]
-execute if score #calculation_temp1 numeric matches 1 run function smpmag:tool/replace-hand-main/item_magnet-mk2-status1
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetStatus1
-execute if score #calculation_temp1 numeric matches 1 run tag @s remove MagnetStatus0
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetStatusChanged
-execute store success score #calculation_temp1 numeric if entity @s[predicate=minecraft:sneaking,predicate=smpmag:tool/hand_main-item_magnet,predicate=smpmag:hand_main-mk2,predicate=smpmag:hand_main-status1,tag=!MagnetStatusChanged]
-execute if score #calculation_temp1 numeric matches 1 run function smpmag:tool/replace-hand-main/item_magnet-mk2-status0
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetStatus0
-execute if score #calculation_temp1 numeric matches 1 run tag @s remove MagnetStatus1
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetStatusChanged
-execute if entity @s[tag=MagnetStatusChanged] run function smpmag:hud/item_magnet
-execute if entity @s[tag=MagnetStatusChanged,tag=MagnetStatus0] at @s run playsound entity.experience_orb.pickup player @s ~ ~ ~ 0.5 0
-execute if entity @s[tag=MagnetStatusChanged,tag=MagnetStatus1] at @s run playsound entity.experience_orb.pickup player @s ~ ~ ~ 0.5 2
-execute if entity @s[tag=MagnetStatusChanged] run tag @s remove MagnetStatusChanged
+function smpmag:tool/meta/detector/hold-magnet
+function smpmag:tool/meta/detector/hold-magnet_item
+function smpmag:tool/meta/detector/hold-magnet_exp
+function smpmag:meta/detector/hold-mk
+function smpmag:meta/detector/hold-status
 
-execute store success score #calculation_temp1 numeric if entity @s[predicate=!minecraft:sneaking,predicate=smpmag:tool/hand_main-item_magnet,predicate=smpmag:hand_main-mk2,predicate=smpmag:hand_main-status1,tag=MagnetRange3]
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetRange1
-execute if score #calculation_temp1 numeric matches 1 run tag @s remove MagnetRange2
-execute if score #calculation_temp1 numeric matches 1 run tag @s remove MagnetRange3
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetRangeChanged
-execute store success score #calculation_temp1 numeric if entity @s[predicate=!minecraft:sneaking,predicate=smpmag:tool/hand_main-item_magnet,predicate=smpmag:hand_main-mk2,predicate=smpmag:hand_main-status1,tag=MagnetRange1,tag=!MagnetRangeChanged]
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetRange2
-execute if score #calculation_temp1 numeric matches 1 run tag @s remove MagnetRange1
-execute if score #calculation_temp1 numeric matches 1 run tag @s remove MagnetRange3
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetRangeChanged
-execute store success score #calculation_temp1 numeric if entity @s[predicate=!minecraft:sneaking,predicate=smpmag:tool/hand_main-item_magnet,predicate=smpmag:hand_main-mk2,predicate=smpmag:hand_main-status1,tag=MagnetRange2,tag=!MagnetRangeChanged]
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetRange3
-execute if score #calculation_temp1 numeric matches 1 run tag @s remove MagnetRange1
-execute if score #calculation_temp1 numeric matches 1 run tag @s remove MagnetRange2
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetRangeChanged
-execute if entity @s[tag=MagnetRangeChanged] run function smpmag:hud/item_magnet
-execute if entity @s[tag=MagnetRangeChanged] at @s run playsound block.note_block.hat player @s ~ ~ ~ 0.5 1
-execute if entity @s[tag=MagnetRangeChanged] run tag @s remove MagnetRangeChanged
+execute if entity @s[tag=holdMagnet] store result score @s rangeMagnet run data get entity @s SelectedItem.tag.range
+execute if entity @s[tag=holdMagnet] unless data entity @s SelectedItem.tag.range run scoreboard players set @s rangeMagnet 1
 
-# exp
-execute store success score #calculation_temp1 numeric if entity @s[predicate=minecraft:sneaking,predicate=smpmag:tool/hand_main-exp_magnet,predicate=smpmag:hand_main-mk1,predicate=smpmag:hand_main-status0]
-execute if score #calculation_temp1 numeric matches 1 run function smpmag:tool/replace-hand-main/exp_magnet-mk1-status1
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetStatus1
-execute if score #calculation_temp1 numeric matches 1 run tag @s remove MagnetStatus0
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetStatusChanged
-execute store success score #calculation_temp1 numeric if entity @s[predicate=minecraft:sneaking,predicate=smpmag:tool/hand_main-exp_magnet,predicate=smpmag:hand_main-mk1,predicate=smpmag:hand_main-status1,tag=!MagnetStatusChanged]
-execute if score #calculation_temp1 numeric matches 1 run function smpmag:tool/replace-hand-main/exp_magnet-mk1-status0
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetStatus0
-execute if score #calculation_temp1 numeric matches 1 run tag @s remove MagnetStatus1
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetStatusChanged
-execute store success score #calculation_temp1 numeric if entity @s[predicate=minecraft:sneaking,predicate=smpmag:tool/hand_main-exp_magnet,predicate=smpmag:hand_main-mk2,predicate=smpmag:hand_main-status0,tag=!MagnetStatusChanged]
-execute if score #calculation_temp1 numeric matches 1 run function smpmag:tool/replace-hand-main/exp_magnet-mk2-status1
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetStatus1
-execute if score #calculation_temp1 numeric matches 1 run tag @s remove MagnetStatus0
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetStatusChanged
-execute store success score #calculation_temp1 numeric if entity @s[predicate=minecraft:sneaking,predicate=smpmag:tool/hand_main-exp_magnet,predicate=smpmag:hand_main-mk2,predicate=smpmag:hand_main-status1,tag=!MagnetStatusChanged]
-execute if score #calculation_temp1 numeric matches 1 run function smpmag:tool/replace-hand-main/exp_magnet-mk2-status0
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetStatus0
-execute if score #calculation_temp1 numeric matches 1 run tag @s remove MagnetStatus1
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetStatusChanged
-execute if entity @s[tag=MagnetStatusChanged] run function smpmag:hud/exp_magnet
-execute if entity @s[tag=MagnetStatusChanged,tag=MagnetStatus0] at @s run playsound entity.experience_orb.pickup player @s ~ ~ ~ 0.5 0
-execute if entity @s[tag=MagnetStatusChanged,tag=MagnetStatus1] at @s run playsound entity.experience_orb.pickup player @s ~ ~ ~ 0.5 2
-execute if entity @s[tag=MagnetStatusChanged] run tag @s remove MagnetStatusChanged
 
-execute store success score #calculation_temp1 numeric if entity @s[predicate=!minecraft:sneaking,predicate=smpmag:tool/hand_main-exp_magnet,predicate=smpmag:hand_main-mk2,predicate=smpmag:hand_main-status1,tag=MagnetRange3]
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetRange1
-execute if score #calculation_temp1 numeric matches 1 run tag @s remove MagnetRange2
-execute if score #calculation_temp1 numeric matches 1 run tag @s remove MagnetRange3
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetRangeChanged
-execute store success score #calculation_temp1 numeric if entity @s[predicate=!minecraft:sneaking,predicate=smpmag:tool/hand_main-exp_magnet,predicate=smpmag:hand_main-mk2,predicate=smpmag:hand_main-status1,tag=MagnetRange1,tag=!MagnetRangeChanged]
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetRange2
-execute if score #calculation_temp1 numeric matches 1 run tag @s remove MagnetRange1
-execute if score #calculation_temp1 numeric matches 1 run tag @s remove MagnetRange3
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetRangeChanged
-execute store success score #calculation_temp1 numeric if entity @s[predicate=!minecraft:sneaking,predicate=smpmag:tool/hand_main-exp_magnet,predicate=smpmag:hand_main-mk2,predicate=smpmag:hand_main-status1,tag=MagnetRange2,tag=!MagnetRangeChanged]
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetRange3
-execute if score #calculation_temp1 numeric matches 1 run tag @s remove MagnetRange1
-execute if score #calculation_temp1 numeric matches 1 run tag @s remove MagnetRange2
-execute if score #calculation_temp1 numeric matches 1 run tag @s add MagnetRangeChanged
-execute if entity @s[tag=MagnetRangeChanged] run function smpmag:hud/exp_magnet
-execute if entity @s[tag=MagnetRangeChanged] at @s run playsound block.note_block.hat player @s ~ ~ ~ 0.5 1
-execute if entity @s[tag=MagnetRangeChanged] run tag @s remove MagnetRangeChanged
+tag @s[predicate=minecraft:sneaking,tag=holdMagnet] add reqActMagnetStatus
+tag @s[tag=reqActMagnetStatus,tag=holdStatus0] add MagnetStatus1
+tag @s[tag=reqActMagnetStatus,tag=holdStatus1] add MagnetStatus0
+
+execute if entity @s[tag=reqActMagnetStatus,tag=holdStatus0] run function smpmag:tool/magnet/action/switch_on
+execute if entity @s[tag=reqActMagnetStatus,tag=holdStatus1] run function smpmag:tool/magnet/action/switch_off
+
+execute if entity @s[tag=reqActMagnetStatus] run function smpmag:hud/magnet
+execute if entity @s[tag=reqActMagnetStatus,tag=MagnetStatus0] at @s run playsound entity.experience_orb.pickup player @s ~ ~ ~ 0.5 0
+execute if entity @s[tag=reqActMagnetStatus,tag=MagnetStatus1] at @s run playsound entity.experience_orb.pickup player @s ~ ~ ~ 0.5 2
+execute if entity @s[tag=reqActMagnetStatus,tag=MagnetStatus0] run tag @s remove MagnetStatus0
+execute if entity @s[tag=reqActMagnetStatus,tag=MagnetStatus1] run tag @s remove MagnetStatus1
+execute if entity @s[tag=reqActMagnetStatus] run tag @s remove reqActMagnetStatus
+
+
+tag @s[predicate=!minecraft:sneaking,tag=holdMagnet,tag=holdMk2,tag=holdStatus1] add reqActMagnetRange
+scoreboard players add @s[tag=reqActMagnetRange] rangeMagnet 1
+scoreboard players set @s[tag=reqActMagnetRange,scores={rangeMagnet=4..}] rangeMagnet 1
+
+execute if entity @s[tag=reqActMagnetRange] run function smpmag:tool/magnet/action/range
+
+execute if entity @s[tag=reqActMagnetRange] run function smpmag:hud/magnet
+execute if entity @s[tag=reqActMagnetRange] at @s run playsound block.note_block.hat player @s ~ ~ ~ 0.5 1
+execute if entity @s[tag=reqActMagnetRange] run tag @s remove reqActMagnetRange

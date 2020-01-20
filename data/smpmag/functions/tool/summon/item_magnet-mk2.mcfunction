@@ -1,1 +1,0 @@
-summon minecraft:item ~ ~ ~ {Item:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{display:{Name:"{\"translate\":\"item.smpmag.item_magnet\",\"italic\":false,\"color\":\"yellow\"}",Lore:["{\"text\":\"Mk2\",\"italic\":false,\"color\":\"gray\"}"]},HideFlags:63,RepairCost:40,Unbreakable:1b,itemMagnet:1,mk:2,status:0}}}
