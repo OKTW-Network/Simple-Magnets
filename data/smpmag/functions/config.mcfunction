@@ -7,7 +7,7 @@
 # integer, default: 2
 scoreboard players set #smpmag_print_version Config 2
 
-# Allow module init prompt print out
+# Allow initial prompt print out
 # boolean, default: 0
 scoreboard players set #smpmag_print_init Config 0
 
