@@ -1,8 +1,4 @@
-scoreboard players set #smpmag_version_x.*.*-* Meta 1
-scoreboard players set #smpmag_version_*.x.*-* Meta 0
-scoreboard players set #smpmag_version_*.*.x-* Meta 2
-scoreboard players set #smpmag_version_*.*.*-x Meta 0
-
+function smpmag:version
 
 scoreboard players operation #new_x.*.*-* Version = #smpmag_version_x.*.*-* Meta
 scoreboard players operation #new_*.x.*-* Version = #smpmag_version_*.x.*-* Meta
@@ -25,7 +21,7 @@ execute if score #change Version matches 0 if score #none Version matches 0 if s
 execute if score #change Version matches 1 run function smpmag:debug/clean_up-scoreboard
 
 # execute if score #change Version matches 1 as @a run function smpmag:debug/clean_up-tag
-execute if score #change Version matches 1 as @a run function smpmag:debug/remove_init_tag
+execute if score #change Version matches 1 as @a run function smpmag:debug/remove-init_tag
 
 scoreboard players operation #smpmag_currently_version_x.*.*-* Meta = #smpmag_version_x.*.*-* Meta
 scoreboard players operation #smpmag_currently_version_*.x.*-* Meta = #smpmag_version_*.x.*-* Meta
