@@ -1,6 +1,6 @@
 function smpmag:meta/scoreboard/register
 function smpmag:config
-function smpmag:version_check
+function smpmag:check-version
 
 execute as @a[tag=!InitializedSmpMagScore] run function smpmag:meta/scoreboard/set_player_score
 
