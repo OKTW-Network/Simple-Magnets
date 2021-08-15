@@ -1,4 +1,4 @@
-execute if entity @s[nbt={Inventory:[{tag:{expMagnet:1,mk:1,status:1}}]}] if entity @e[type=minecraft:experience_orb,distance=..3] run tp @e[type=minecraft:experience_orb,distance=..3] @s
-execute if entity @s[nbt={Inventory:[{tag:{expMagnet:1,mk:2,status:1}}]},scores={rangeMagnet=1}] if entity @e[type=minecraft:experience_orb,distance=..3] run tp @e[type=minecraft:experience_orb,distance=..3] @s
-execute if entity @s[nbt={Inventory:[{tag:{expMagnet:1,mk:2,status:1}}]},scores={rangeMagnet=2}] if entity @e[type=minecraft:experience_orb,distance=..6] run tp @e[type=minecraft:experience_orb,distance=..6] @s
-execute if entity @s[nbt={Inventory:[{tag:{expMagnet:1,mk:2,status:1}}]},scores={rangeMagnet=3}] if entity @e[type=minecraft:experience_orb,distance=..9] run tp @e[type=minecraft:experience_orb,distance=..9] @s
+tag @e[distance=..14,type=experience_orb,tag=!smpmag.magnetCanAttract.exp] add smpmag.magnetCanAttract.exp
+
+execute if entity @s[predicate=smpmag:tool/magnet/have-active_mk1,predicate=!smpmag:tool/magnet/have-active_mk2] if entity @e[tag=smpmag.magnetCanAttract.exp,distance=..3] run tp @e[tag=smpmag.magnetCanAttract.exp,distance=..3] @s
+execute if entity @s[predicate=smpmag:tool/magnet/have-active_mk2] if entity @e[tag=smpmag.magnetCanAttract.exp,distance=..7] run tp @e[tag=smpmag.magnetCanAttract.exp,distance=..7] @s

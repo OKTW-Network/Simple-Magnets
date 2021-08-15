@@ -1,0 +1,23 @@
+[
+    {
+        "condition": "minecraft:entity_properties",
+        "predicate": {
+            "type": "minecraft:item"
+        },
+        "entity": "this"
+    },
+    {
+        "condition": "minecraft:reference",
+        "name": "minecraft:pickup_delay_0"
+    },
+    {
+        "condition": "minecraft:inverted",
+        "term": {
+            "condition": "minecraft:entity_properties",
+            "predicate": {
+                "nbt": "{Tags:[\"global.magnetDoNotAttract\"]}"
+            },
+            "entity": "this"
+        }
+    }
+]

@@ -1,12 +1,12 @@
-execute as @e[type=minecraft:item,tag=dropRcpItemMagMk1_1,nbt={Item:{id:"minecraft:iron_ingot"}},nbt=!{Item:{Count:4b}}] run tag @s remove dropRcpItemMagMk1_1
-execute as @e[type=minecraft:item,nbt={Item:{id:"minecraft:iron_ingot",Count:4b}}] run tag @s add dropRcpItemMagMk1_1
+execute as @e[type=minecraft:item,nbt={Item:{id:"minecraft:iron_ingot",Count:4b},PickupDelay:0s}] if data entity @s Thrower run tag @s add smpmag.recipe.dropped.magnet_item-mk1.material_1
+execute as @e[type=minecraft:item,nbt={Item:{id:"minecraft:gold_ingot",Count:2b},PickupDelay:0s}] if data entity @s Thrower run tag @s add smpmag.recipe.dropped.magnet_item-mk1.material_2
 
-execute as @e[type=minecraft:item,tag=dropRcpItemMagMk1_2,nbt={Item:{id:"minecraft:gold_ingot"}},nbt=!{Item:{Count:2b}}] run tag @s remove dropRcpItemMagMk1_2
-execute as @e[type=minecraft:item,nbt={Item:{id:"minecraft:gold_ingot",Count:2b}}] run tag @s add dropRcpItemMagMk1_2
+scoreboard players set @e[type=minecraft:item,tag=smpmag.recipe.dropped.magnet_item-mk1.material_1] sucDropRcp 0
+execute as @e[type=minecraft:item,tag=smpmag.recipe.dropped.magnet_item-mk1.material_1] at @s if entity @e[type=minecraft:item,tag=smpmag.recipe.dropped.magnet_item-mk1.material_2,distance=..0.5] run scoreboard players set @s sucDropRcp 1
+execute as @e[type=minecraft:item,tag=smpmag.recipe.dropped.magnet_item-mk1.material_1,scores={sucDropRcp=1}] at @s run playsound minecraft:entity.zombie_villager.converted block @a ~ ~ ~ 1 2
+execute as @e[type=minecraft:item,tag=smpmag.recipe.dropped.magnet_item-mk1.material_1,scores={sucDropRcp=1}] at @s run function smpmag:tool/summon/magnet_item-mk1
+execute as @e[type=minecraft:item,tag=smpmag.recipe.dropped.magnet_item-mk1.material_1,scores={sucDropRcp=1}] at @s run kill @e[type=minecraft:item,tag=smpmag.recipe.dropped.magnet_item-mk1.material_2,distance=..1,sort=nearest,limit=1]
+execute as @e[type=minecraft:item,tag=smpmag.recipe.dropped.magnet_item-mk1.material_1,scores={sucDropRcp=1}] run kill @s
 
-execute as @e[type=minecraft:item,tag=dropRcpItemMagMk1_2] at @s store success score #1 calcu_temp if entity @e[type=minecraft:item,tag=dropRcpItemMagMk1_1,distance=..0.5]
-execute as @e[type=minecraft:item,tag=dropRcpItemMagMk1_2] if score #1 calcu_temp matches 1 run scoreboard players set #1 calcu_temp -1
-execute as @e[type=minecraft:item,tag=dropRcpItemMagMk1_2] at @s if score #1 calcu_temp matches -1 run playsound minecraft:entity.zombie_villager.converted block @a ~ ~ ~ 1 2
-execute as @e[type=minecraft:item,tag=dropRcpItemMagMk1_2] at @s if score #1 calcu_temp matches -1 run function smpmag:tool/summon/magnet_item-mk1
-execute as @e[type=minecraft:item,tag=dropRcpItemMagMk1_2] at @s if score #1 calcu_temp matches -1 run kill @e[type=minecraft:item,tag=dropRcpItemMagMk1_1,distance=..1,sort=nearest,limit=1]
-execute as @e[type=minecraft:item,tag=dropRcpItemMagMk1_2] if score #1 calcu_temp matches -1 run kill @s
+tag @e[tag=smpmag.recipe.dropped.magnet_item-mk1.material_1] remove smpmag.recipe.dropped.magnet_item-mk1.material_1
+tag @e[tag=smpmag.recipe.dropped.magnet_item-mk1.material_2] remove smpmag.recipe.dropped.magnet_item-mk1.material_2

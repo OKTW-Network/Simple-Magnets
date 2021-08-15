@@ -1,0 +1,1 @@
+function smpmag:recipe/main

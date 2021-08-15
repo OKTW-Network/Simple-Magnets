@@ -1,0 +1,10 @@
+[
+    {
+        "condition": "minecraft:reference",
+        "name": "smpmag:tool/magnet/hand_main-hold"
+    },
+    {
+        "condition": "minecraft:reference",
+        "name": "smpmag:tool/magnet/hand_off-hold"
+    }
+]

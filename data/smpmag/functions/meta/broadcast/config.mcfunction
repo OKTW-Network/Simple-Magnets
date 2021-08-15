@@ -1,0 +1,1 @@
+execute if score #smpmag$print_config Config matches 1 run tellraw @a ["",{"text":"[Simple Magnets]: ","color":"yellow","bold":true},{"text":"Config: "},{"text":"Settings loaded!"}]

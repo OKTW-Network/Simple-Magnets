@@ -1,5 +1,6 @@
 {
     "values":[
-        "global:load"
+        "smpmag:check_and_run-initial",
+        "smpmag:check_and_run-setup"
     ]
 }

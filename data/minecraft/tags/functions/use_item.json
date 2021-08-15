@@ -1,5 +1,5 @@
 {
     "values":[
-        "smpmag:tool/use_item_request_manager"
+        "smpmag:tool/magnet/action/handler-use_item"
     ]
 }

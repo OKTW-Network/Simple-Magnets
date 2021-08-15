@@ -1,0 +1,7 @@
+{
+    "condition": "minecraft:entity_properties",
+    "predicate": {
+        "nbt": "{Inventory:[{tag:{CustomData:{smpmag:{id:\"magnet\",tag:{status:1b,mark:1}}}}}]}"
+    },
+    "entity":"this"
+}

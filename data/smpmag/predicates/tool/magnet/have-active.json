@@ -1,0 +1,17 @@
+{
+    "condition": "minecraft:alternative",
+    "terms": [
+        {
+            "condition": "minecraft:reference",
+            "name": "smpmag:tool/magnet/have-active_type_item"
+        },
+        {
+            "condition": "minecraft:reference",
+            "name": "smpmag:tool/magnet/have-active_type_exp"
+        },
+        {
+            "condition": "minecraft:reference",
+            "name": "smpmag:tool/magnet/have-active_type_uni"
+        }
+    ]
+}

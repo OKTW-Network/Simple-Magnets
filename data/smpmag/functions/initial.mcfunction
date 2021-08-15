@@ -1,9 +1,12 @@
+function #smpmag:scoreboard-register
 function smpmag:meta/scoreboard/register
-function smpmag:config
-function smpmag:check-version
 
-execute as @a[tag=!InitializedSmpMagScore] run function smpmag:meta/scoreboard/set_player_score
+function #smpmag:config
+
+function smpmag:check-version
 
 function smpmag:tool/initial
 
-execute if score #smpmag_print_init Config matches 1 run tellraw @a ["",{"text":"[Simple Magnets]: ","color":"yellow","bold":true},{"text":"Initialize complete!"}]
+execute as @a run function smpmag:initial-player
+
+execute if score #smpmag$print_init Config matches 1 run tellraw @a ["",{"text":"[Simple Magnets]: ","color":"yellow","bold":true},{"text":"Initialize complete!"}]

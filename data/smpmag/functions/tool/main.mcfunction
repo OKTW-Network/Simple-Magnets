@@ -1,1 +1,1 @@
-execute as @a[tag=!InitializedSmpMagToolScore] run function smpmag:tool/meta/scoreboard/set_player_score
+execute as @a[predicate=smpmag:tool/magnet/have-active] at @s run function smpmag:tool/magnet/main

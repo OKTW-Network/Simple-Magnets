@@ -1,1 +1,4 @@
-give @s minecraft:carrot_on_a_stick{display:{Name:'{"translate":"item.smpmag.item_magnet","italic":false,"color":"white"}',Lore:['{"text":"Mk1","italic":false,"color":"gray"}','[{"translate":"text.range","italic":false,"color":"gray"},{"text":": ","italic":false,"color":"gray"},{"translate":"text.smpmag.range1","italic":false,"color":"gray"}]']},HideFlags:63,RepairCost:40,Unbreakable:1b,itemMagnet:1,mk:1,status:0} 1
+data modify storage smpmag:get item prepend value {id:"minecraft:carrot_on_a_stick",Count:1b}
+data modify storage smpmag:get itemTag set value []
+function smpmag:tool/get/tag/magnet_item-mk1
+data modify storage smpmag:get item[0].tag set from storage smpmag:get itemTag[0]
