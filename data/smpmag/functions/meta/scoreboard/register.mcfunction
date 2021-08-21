@@ -5,3 +5,5 @@ scoreboard objectives add VersionSmpmagX dummy
 scoreboard objectives add VersionSmpmagY dummy
 scoreboard objectives add VersionSmpmagZ dummy
 scoreboard objectives add VersionSmpmagA dummy
+
+scoreboard objectives add +SimpleMagnet dummy
