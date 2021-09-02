@@ -8,7 +8,7 @@ scoreboard players operation #currently_*.*.x-* Version = @s VersionSmpmagZ
 scoreboard players operation #currently_*.*.*-x Version = @s VersionSmpmagA
 function cu:version/check
 
-execute if score #change Version matches 1 run function smpmag:debug/remove-init_tag
+execute if score #change Version matches 1 run function smpmag:debug/re-give/everthing
 
 scoreboard players operation @s VersionSmpmagX = #smpmag$currently_version_x.*.*-* Meta
 scoreboard players operation @s VersionSmpmagY = #smpmag$currently_version_*.x.*-* Meta
